@@ -52,7 +52,7 @@ JSON schema version 1 包含 geometry、CSR、directed edge index、face geometr
 - `pnpm build`：TypeScript typecheck 與 production build 通過；`dist` 的資源路徑使用 `/mesh-graph-inspector/`。
 - 瀏覽器：Codex 內建瀏覽器與 Chrome 載入合成示範；內建瀏覽器實際載入 binary quad PLY、選面、顯示 helper／未配對邊；非法 index 檔案被拒絕且前一模型保留。桌面與窄螢幕布局已查看。
 - JSON serializer round-trip 已通過。瀏覽器 Export handler 能產生資料且沒有 console errors，但自動化 download-event 等待逾時，尚未確認實際下載檔案落盤；介面文字僅表示已要求瀏覽器下載。
-- GitHub Actions workflow 已完成，尚未推送或在 GitHub runner 執行；沒有發布網站。
+- 2026-10-01 已推送至 main；[GitHub Actions run 36871380692](https://github.com/QQBoxy/mesh-graph-inspector/actions/runs/36871380692) 的 build 與 deploy 皆成功。對應 commit：`a4189a8db9487f12a960f41de79e648649c68788`。正式網站：[Mesh Graph Inspector](https://qqboxy.github.io/mesh-graph-inspector/)，已用 HTTP 確認網站 HTML 與 Pages 資源路徑。
 
 合成曲面網格在本機 macOS、Node v24.20.0 下，三次計算的 median（含 topology、face geometry、diagnostics、graph、components 與 normals/bounds；不含 PLY parse、GPU 或 JSON）初次量測：
 
@@ -65,7 +65,7 @@ JSON schema version 1 包含 geometry、CSR、directed edge index、face geometr
 
 ## 已知限制
 
-不完整分類任意 T-junction、vertex non-manifold、self-intersection、接近但不相同的接縫／量化漏配。不驗證 TeethGNN tensor contract。來源 Float64 轉 Float32 有精度限制。HalfEdgeMap 固定雜湊可能在大座標發生 Int32 alias；本工具警告並排除不精確的 sibling，但不能證明没有漏配。
+不完整分類任意 T-junction、vertex non-manifold、self-intersection、接近但不相同的接縫／量化漏配。不驗證 TeethGNN tensor contract。來源 Float64 轉 Float32 有精度限制。HalfEdgeMap 固定雜湊可能在大座標發生 Int32 alias；本工具警告並排除不精確的 sibling，但不能證明沒有漏配。
 
 PLY 使用嚴格宣告政策，包含尾端資料數量一致；不是容錯型 PLY repair loader。PLY 顏色及 UV 不作 graph feature，viewer 使用中性色。真實患者模型不提交、不上傳。
 
