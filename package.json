@@ -1,0 +1,28 @@
+{
+  "name": "mesh-graph-inspector",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "pnpm@10.21.0",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "pnpm typecheck && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tweakpane/core": "2.0.5",
+    "three": "0.186.0",
+    "three-bvh-csg": "0.0.18",
+    "three-mesh-bvh": "0.9.15",
+    "tweakpane": "4.0.5"
+  },
+  "devDependencies": {
+    "@types/three": "0.186.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.0",
+    "vitest": "4.0.18"
+  }
+}

@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mesh Graph Inspector</title></head>
+<body>
+<div id="app">
+  <header><div><span class="eyebrow">LOCAL MESH LAB / 02</span><h1>Mesh Graph Inspector</h1><p>每個三角面，都是一個節點。</p></div><span class="privacy">本機處理 · 模型不上傳</span></header>
+  <main><section id="viewport" aria-label="三維網格檢視器"><div id="empty"><span class="empty-symbol">△</span><h2>從簡化後的網格開始</h2><p>開啟 PLY，檢查相鄰面、連通分量與未配對邊。</p><button id="open">開啟 PLY</button><button id="demo">試用合成示範</button><small>左鍵旋轉 · 滾輪縮放 · 右鍵平移 · 點一下選面</small></div><div id="legend"><span>● 選面</span><span>● 1-hop</span><span>● 2–5-hop</span><span>● 未配對邊</span></div><div id="model-name"></div></section>
+  <aside><div id="pane"></div><section class="detail"><h2>Face Inspector</h2><pre id="face-detail">載入後點選三角面，或輸入 Face ID。</pre></section><section class="detail"><h2>Topology Diagnostics</h2><pre id="diagnostics">尚未載入網格</pre></section><section class="detail"><h2>Components</h2><pre id="components">—</pre></section><section class="detail"><h2>Timing / ms</h2><pre id="timings">—</pre></section></aside></main>
+  <footer id="status" role="status" aria-live="polite">支援 ASCII / binary little-endian 三角面 PLY · 不自動修復幾何</footer>
+</div><input id="file" type="file" accept=".ply" hidden><script type="module" src="/src/main.ts"></script>
+</body></html>
